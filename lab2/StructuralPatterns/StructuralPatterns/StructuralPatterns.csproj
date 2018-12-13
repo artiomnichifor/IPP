@@ -43,7 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ent\Employee.cs" />
+    <Compile Include="Ent\Billing.cs" />
+    <Compile Include="Ent\Cart.cs" />
+    <Compile Include="Ent\Client.cs" />
+    <Compile Include="Ent\PersonalData.cs" />
+    <Compile Include="Ent\Product.cs" />
+    <Compile Include="Interfaces\IBilling.cs" />
+    <Compile Include="Interfaces\ICart.cs" />
+    <Compile Include="Interfaces\IPersonalData.cs" />
+    <Compile Include="Interfaces\ITarget.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
