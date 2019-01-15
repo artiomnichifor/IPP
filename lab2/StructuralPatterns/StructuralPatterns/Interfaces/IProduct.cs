@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace StructuralPatterns.Interfaces
 {
-    interface IPersonalData
+    interface IProduct
     {
-        void Purchase();
-        void EditName();
+        string Name { get; set; }
+        double Price { get; set; }
+
         void ShowData();
     }
 }

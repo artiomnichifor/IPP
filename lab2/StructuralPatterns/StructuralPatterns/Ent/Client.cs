@@ -13,19 +13,19 @@ namespace StructuralPatterns.Ent
         IBilling billing;
         ICart cart;
 
-        public Client()
+        public Client(string fn, string ln, DateTime dob)
         {
-            personalData = new PersonalData();
+            personalData = new PersonalData(fn, ln, dob);
             billing = new Billing();
             cart = new Cart();
         }
 
-        public void AddToCart(Product p)
+        public void AddToCart(IProduct p)
         {
             cart.Add(p);
         }
 
-        public void RemoveFromCart(Product p)
+        public void RemoveFromCart(IProduct p)
         {
             cart.Remove(p);
         }
@@ -42,6 +42,8 @@ namespace StructuralPatterns.Ent
             {
                 Console.WriteLine($"Suma disponibila: {billing.GetBallance()}");
                 Console.WriteLine($"Suma destinata achitarii {cart.GetTotalPrice()}");
+                Console.Write("Lista de cumparaturi:");
+                cart.WriteProductsName();
                 Console.WriteLine($"Suma cu reducere: {billing.CutTheDiscount(price)}");
             }
             else
@@ -66,6 +68,24 @@ namespace StructuralPatterns.Ent
             {
                 billing.SetTheDiscountStatus(s, d);
             }
+        }
+
+        public void Purchase()
+        {
+            billing.Purchase(billing.CutTheDiscount(cart.GetTotalPrice()));
+            personalData.Purchase();
+            cart.Update();
+            Console.WriteLine($"Suma ramasa: {billing.GetBallance()}");
+        }
+
+        public void EditPersonalData()
+        {
+            personalData.EditName();
+        }
+
+        public void ShowPersonalData()
+        {
+            personalData.ShowData();
         }
 
     }

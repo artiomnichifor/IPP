@@ -9,9 +9,18 @@ namespace StructuralPatterns.Ent
 {
     class Billing : IBilling
     {
-        public double TotalAmountOfMoney { get; set; }
-        public string CustomerStatus { get; set; }
-        public int CustomerDiscount { get; set; } 
+        double TotalAmountOfMoney;
+        string CustomerStatus;
+        int CustomerDiscount;
+        int numberOfPurchases;
+
+        public Billing()
+        {
+            TotalAmountOfMoney = 0;
+            CustomerDiscount = 0;
+            CustomerStatus = null;
+            numberOfPurchases = 0;
+        }
 
         public bool CompareWithBallance(double p)
         {
@@ -38,6 +47,12 @@ namespace StructuralPatterns.Ent
             CustomerStatus = s;
             CustomerDiscount = d;
             Console.Write(CustomerDiscount);
+        }
+
+        public void Purchase(double price)
+        {
+            TotalAmountOfMoney -= price;
+            numberOfPurchases += 1;
         }
     }
 }

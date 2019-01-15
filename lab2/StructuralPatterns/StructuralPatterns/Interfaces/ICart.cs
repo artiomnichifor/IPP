@@ -9,8 +9,10 @@ namespace StructuralPatterns.Interfaces
 {
     interface ICart
     {
-        void Add(Product p);
-        void Remove(Product p);
+        void Add(IProduct p);
+        void Remove(IProduct p);
         double GetTotalPrice();
+        void Update();
+        void WriteProductsName();
     }
 }

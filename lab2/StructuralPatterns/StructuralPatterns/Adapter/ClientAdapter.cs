@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StructuralPatterns.Facade
+namespace StructuralPatterns.Adapter
 {
-    interface ITarget
+    class ClientAdapter
     {
     }
 }

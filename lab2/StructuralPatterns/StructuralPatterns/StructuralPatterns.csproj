@@ -43,6 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\BillingStatisticsSystem.cs" />
+    <Compile Include="Adapter\ClientAdapter.cs" />
+    <Compile Include="Adapter\ITarget.cs" />
+    <Compile Include="Bridge\IPersonalDataEditor.cs" />
+    <Compile Include="Bridge\PersonalDataEditor.cs" />
+    <Compile Include="Decorator\Decorator.cs" />
+    <Compile Include="Decorator\LimitedEditionProduct.cs" />
     <Compile Include="Ent\Billing.cs" />
     <Compile Include="Ent\Cart.cs" />
     <Compile Include="Ent\Client.cs" />
@@ -51,17 +58,16 @@
     <Compile Include="Interfaces\IBilling.cs" />
     <Compile Include="Interfaces\ICart.cs" />
     <Compile Include="Interfaces\IPersonalData.cs" />
-    <Compile Include="Interfaces\ITarget.cs" />
+    <Compile Include="Interfaces\IProduct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ClientSystem.cs" />
+    <Compile Include="Repositories\ProductSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Adapter\" />
-    <Folder Include="Bridge\" />
-    <Folder Include="Decorator\" />
     <Folder Include="Facade\" />
     <Folder Include="Flyweight\" />
   </ItemGroup>

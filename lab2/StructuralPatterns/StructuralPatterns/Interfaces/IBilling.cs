@@ -14,6 +14,6 @@ namespace StructuralPatterns.Interfaces
         double CutTheDiscount(double p);
         void TopUp(double m);
         void SetTheDiscountStatus(string s, int d);
-
+        void Purchase(double price);
     }
 }

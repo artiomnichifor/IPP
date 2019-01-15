@@ -9,14 +9,14 @@ namespace StructuralPatterns.Ent
 {
     class Cart : ICart
     {
-        List<Product> products = new List<Product>();
+        List<IProduct> products = new List<IProduct>();
 
-        public void Add(Product p)
+        public void Add(IProduct p)
         {
             products.Add(p);
         }
 
-        public void Remove(Product p)
+        public void Remove(IProduct p)
         {
             products.Remove(p);
         }
@@ -24,11 +24,28 @@ namespace StructuralPatterns.Ent
         public double GetTotalPrice()
         {
             double price = 0;
-            foreach(Product p in products)
+            foreach(var p in products)
             {
                 price += p.Price;
             }
             return price;
+        }
+
+        public void WriteProductsName()
+        {
+            foreach(var p in products)
+            {
+                Console.Write(p.Name);
+            }
+            Console.Write("\n");
+        }
+
+        public void Update()
+        {
+            //set some data about last purchase
+            //
+            //
+
         }
     }
 }
