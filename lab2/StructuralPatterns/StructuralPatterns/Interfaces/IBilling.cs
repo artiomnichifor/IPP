@@ -15,5 +15,7 @@ namespace StructuralPatterns.Interfaces
         void TopUp(double m);
         void SetTheDiscountStatus(string s, int d);
         void Purchase(double price);
+        void ShowDiscountData();
+        void ShowBallanceData();
     }
 }

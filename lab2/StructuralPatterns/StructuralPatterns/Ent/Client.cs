@@ -91,6 +91,16 @@ namespace StructuralPatterns.Ent
             personalData.ShowData();
         }
 
+        public void ShowDiscountData()
+        {
+            billing.ShowDiscountData();
+        }
+
+        public void ShowBallanceData()
+        {
+            billing.ShowBallanceData();
+        }
+
         public void AddDiscountBonus(string status, int discount)
         {
             billing.SetTheDiscountStatus(status, discount);

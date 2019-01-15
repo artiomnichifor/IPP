@@ -8,6 +8,7 @@ using StructuralPatterns.Repositories;
 using StructuralPatterns.Decorator;
 using StructuralPatterns.Adapter;
 using StructuralPatterns.Interfaces;
+using StructuralPatterns.Flyweight;
 
 namespace StructuralPatterns
 {
@@ -19,15 +20,13 @@ namespace StructuralPatterns
             ClientSystem clientSystem = new ClientSystem();
             ProductAdapter productAdapter = new ProductAdapter();
             BillingStatisticsSystem statisticsSystem = new BillingStatisticsSystem(productAdapter);
+            BonusFactory bonusFactory = new BonusFactory();
 
-            Client client = new Client("Ina", "Munteanu", new DateTime(1996, 1, 1));
+            Client client1 = new Client("Ina", "Munteanu", new DateTime(1996, 1, 1));
+            clientSystem.AddClient(client1);
+            Client client2 = new Client("Maria", "Zeru", new DateTime(1997, 1, 1));
+            clientSystem.AddClient(client2);
 
-            clientSystem.AddClient(client);
-
-            //Bridge
-            //client.ShowPersonalData();
-            //client.EditPersonalData();
-            //client.ShowPersonalData();
 
             Product product1 = new Product();
             product1.Name = "name1";
@@ -40,32 +39,53 @@ namespace StructuralPatterns
             product2.Price = 12;
             product2.DoP = DateTime.Now;
 
+            //Decorator
             LimitedEditionProduct limitedEditionProduct1 = new LimitedEditionProduct(product2);
             limitedEditionProduct1.endOfProotion = new DateTime(2020, 1, 1);
             productSystem.AddProduct(limitedEditionProduct1);
 
             Product product3 = new Product();
-            product1.Name = "name3";
-            product1.Price = 3;
-            product1.DoP = DateTime.Now;
+            product3.Name = "name3";
+            product3.Price = 3;
+            product3.DoP = DateTime.Now;
             productSystem.AddProduct(product3);
 
 
+            //Flyweight
+            Console.WriteLine("\nFlyweight:");
+            IBonus bonus = bonusFactory.GetBonus("PrimeUserBonus");
+            bonus.AddBonus(client2);
+            client2.ShowDiscountData();
+
+
+            //Bridge
+            Console.WriteLine("\nBridge:");
+            //client1.ShowPersonalData();
+            //client1.EditPersonalData();
+            //client1.ShowPersonalData();
+
+
+            //Adapter
+            Console.WriteLine("\nAdapter:");
             statisticsSystem.ShowProductsNameList();
             statisticsSystem.ShowAveragePrice();
 
-            //
-            //limitedEditionProduct1.ShowData();
+            //Decorator
+            Console.WriteLine("\nDecorator:");
+            limitedEditionProduct1.ShowData();
 
 
-            //
-            //client.SetClientDiscountStatus();
+            //Facade
+            Console.WriteLine("\nFacade:");
+            //client1.SetClientDiscountStatus();
+            bonus.AddBonus(client1);
+            client1.AddToCart(product1);
+            client1.AddToCart(limitedEditionProduct1);
+            client1.TopUpAccount(21);
+            client1.GetThePurchaseInfo();
+            client1.Purchase();
 
-            //client.AddToCart(product1);
-            //client.AddToCart(limitedEditionProduct1);
-            //client.TopUpAccount(21);
-            //client.GetThePurchaseInfo();
-            //client.Purchase();
+            //client1.ShowBallanceData();
 
 
             Console.ReadKey();

@@ -53,5 +53,17 @@ namespace StructuralPatterns.Ent
             TotalAmountOfMoney -= price;
             numberOfPurchases += 1;
         }
+
+        public void ShowDiscountData()
+        {
+            Console.WriteLine($"Status: {CustomerStatus}");
+            Console.WriteLine($"Discount: {CustomerDiscount}");
+
+        }
+
+        public void ShowBallanceData()
+        {
+            Console.WriteLine($"Ballance: {TotalAmountOfMoney}");
+        }
     }
 }
