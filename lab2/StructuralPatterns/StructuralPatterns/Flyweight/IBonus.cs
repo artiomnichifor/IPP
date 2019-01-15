@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StructuralPatterns.Adapter
+namespace StructuralPatterns.Flyweight
 {
-    interface ITarget
+    interface IBonus
     {
-        List<string> GetProductNameList();
-        double GetAveragePrice();
+        void AddBonus(Client c);
     }
 }

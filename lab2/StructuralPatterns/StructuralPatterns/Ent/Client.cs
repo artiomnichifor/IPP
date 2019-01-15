@@ -51,6 +51,7 @@ namespace StructuralPatterns.Ent
                 Console.WriteLine("Resursele financiare sunt prea putine, supliniti contul!");
             }
         }
+
         public void SetClientDiscountStatus()
         {
             Console.Write("Status: ");
@@ -70,6 +71,8 @@ namespace StructuralPatterns.Ent
             }
         }
 
+
+
         public void Purchase()
         {
             billing.Purchase(billing.CutTheDiscount(cart.GetTotalPrice()));
@@ -86,6 +89,11 @@ namespace StructuralPatterns.Ent
         public void ShowPersonalData()
         {
             personalData.ShowData();
+        }
+
+        public void AddDiscountBonus(string status, int discount)
+        {
+            billing.SetTheDiscountStatus(status, discount);
         }
 
     }

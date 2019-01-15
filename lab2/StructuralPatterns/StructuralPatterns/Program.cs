@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using StructuralPatterns.Repositories;
 using StructuralPatterns.Decorator;
-
+using StructuralPatterns.Adapter;
+using StructuralPatterns.Interfaces;
 
 namespace StructuralPatterns
 {
@@ -16,6 +17,9 @@ namespace StructuralPatterns
         {
             ProductSystem productSystem = new ProductSystem();
             ClientSystem clientSystem = new ClientSystem();
+            ProductAdapter productAdapter = new ProductAdapter();
+            BillingStatisticsSystem statisticsSystem = new BillingStatisticsSystem(productAdapter);
+
             Client client = new Client("Ina", "Munteanu", new DateTime(1996, 1, 1));
 
             clientSystem.AddClient(client);
@@ -29,8 +33,7 @@ namespace StructuralPatterns
             product1.Name = "name1";
             product1.Price = 8;
             product1.DoP = DateTime.Now;
-
-            client.AddToCart(product1);
+            productSystem.AddProduct(product1);
 
             Product product2 = new Product();
             product2.Name = "name2";
@@ -39,13 +42,27 @@ namespace StructuralPatterns
 
             LimitedEditionProduct limitedEditionProduct1 = new LimitedEditionProduct(product2);
             limitedEditionProduct1.endOfProotion = new DateTime(2020, 1, 1);
+            productSystem.AddProduct(limitedEditionProduct1);
 
-            limitedEditionProduct1.ShowData();
+            Product product3 = new Product();
+            product1.Name = "name3";
+            product1.Price = 3;
+            product1.DoP = DateTime.Now;
+            productSystem.AddProduct(product3);
 
-            client.AddToCart(limitedEditionProduct1);
 
+            statisticsSystem.ShowProductsNameList();
+            statisticsSystem.ShowAveragePrice();
+
+            //
+            //limitedEditionProduct1.ShowData();
+
+
+            //
             //client.SetClientDiscountStatus();
 
+            //client.AddToCart(product1);
+            //client.AddToCart(limitedEditionProduct1);
             //client.TopUpAccount(21);
             //client.GetThePurchaseInfo();
             //client.Purchase();

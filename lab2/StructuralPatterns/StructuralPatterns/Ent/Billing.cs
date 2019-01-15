@@ -46,7 +46,6 @@ namespace StructuralPatterns.Ent
         {
             CustomerStatus = s;
             CustomerDiscount = d;
-            Console.Write(CustomerDiscount);
         }
 
         public void Purchase(double price)

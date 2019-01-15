@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter\BillingStatisticsSystem.cs" />
-    <Compile Include="Adapter\ClientAdapter.cs" />
+    <Compile Include="Adapter\ProductAdapter.cs" />
     <Compile Include="Adapter\ITarget.cs" />
     <Compile Include="Bridge\IPersonalDataEditor.cs" />
     <Compile Include="Bridge\PersonalDataEditor.cs" />
@@ -55,6 +55,10 @@
     <Compile Include="Ent\Client.cs" />
     <Compile Include="Ent\PersonalData.cs" />
     <Compile Include="Ent\Product.cs" />
+    <Compile Include="Flyweight\IBonus.cs" />
+    <Compile Include="Flyweight\BonusFactory.cs" />
+    <Compile Include="Flyweight\OneYearUserBonus.cs" />
+    <Compile Include="Flyweight\PrimeUserBonus.cs" />
     <Compile Include="Interfaces\IBilling.cs" />
     <Compile Include="Interfaces\ICart.cs" />
     <Compile Include="Interfaces\IPersonalData.cs" />
@@ -67,10 +71,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Facade\" />
-    <Folder Include="Flyweight\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
