@@ -9,6 +9,6 @@ namespace BehavioralPatterns.Entitites
     class Employee
     {
         public string Name { get; set; }
-        public string Priority { get; set; }
+        public string Position { get; set; }
     }
 }
