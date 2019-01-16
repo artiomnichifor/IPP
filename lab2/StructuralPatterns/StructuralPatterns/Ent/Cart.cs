@@ -40,7 +40,7 @@ namespace StructuralPatterns.Ent
             Console.Write("\n");
         }
 
-        public void Update()
+        public void Purchase()
         {
             //set some data about last purchase
             //

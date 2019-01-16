@@ -11,6 +11,8 @@ namespace StructuralPatterns.Repositories
 {
     class ProductSystem
     {
+        List<IProduct> products = new List<IProduct>();
+
         public ProductSystem()
         {
             products.Add(new Product
@@ -27,7 +29,7 @@ namespace StructuralPatterns.Repositories
                 Price = 8,
                 Description = "desc2"
             });
-            limitedEditionProduct1.endOfProotion = new DateTime(2020, 1, 1);
+            limitedEditionProduct1.EndOfPromotion = new DateTime(2020, 1, 1);
             products.Add(limitedEditionProduct1);
             products.Add(new Product
             {
@@ -38,7 +40,6 @@ namespace StructuralPatterns.Repositories
             });
         }
 
-        List<IProduct> products = new List<IProduct>();
 
         public List<IProduct> GetAllProducts()
         {

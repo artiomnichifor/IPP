@@ -9,7 +9,7 @@ namespace StructuralPatterns.Ent
 {
     class Client
     {
-        IPersonalData personalData;
+        AbstractPersonalData personalData;
         IBilling billing;
         ICart cart;
 
@@ -71,13 +71,11 @@ namespace StructuralPatterns.Ent
             }
         }
 
-
-
         public void Purchase()
         {
             billing.Purchase(billing.CutTheDiscount(cart.GetTotalPrice()));
             personalData.Purchase();
-            cart.Update();
+            cart.Purchase();
             Console.WriteLine($"Suma ramasa: {billing.GetBallance()}");
         }
 

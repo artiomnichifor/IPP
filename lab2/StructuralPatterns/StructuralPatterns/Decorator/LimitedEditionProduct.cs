@@ -9,7 +9,7 @@ namespace StructuralPatterns.Decorator
 {
     class LimitedEditionProduct : Decorator
     {
-        public DateTime endOfProotion { get; set; }
+        public DateTime EndOfPromotion { get; set; }
 
         public LimitedEditionProduct(IProduct product) : base (product)
         {
@@ -19,7 +19,7 @@ namespace StructuralPatterns.Decorator
         public override void ShowData()
         {
             base.ShowData();
-            Console.WriteLine($"Data limita a promotiei: {endOfProotion}");
+            Console.WriteLine($"Data limita a promotiei: {EndOfPromotion}");
         }
     }
 }

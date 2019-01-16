@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StructuralPatterns.Ent
 {
-    class PersonalData : IPersonalData
+    class PersonalData : AbstractPersonalData
     {      
 
         public string firstName { get; set; }
@@ -16,27 +16,26 @@ namespace StructuralPatterns.Ent
         public DateTime DateOfBirth { get; set; }
         public DateTime lastTimePurchased { get; set; }
 
-        IPersonalDataEditor PersonalDataEditor { get; set; }
 
-        public PersonalData(string fn, string ln, DateTime dob)
+        public PersonalData(string fn, string ln, DateTime dob) : base()
         {
             this.DateOfBirth = dob;
             this.firstName = fn;
             this.lastName = ln;
-            this.PersonalDataEditor = new PersonalDataEditor();
+            
         }
 
-        public void EditName()
+        public override void EditName()
         {
             PersonalDataEditor.EditName(this);
         }
 
-        public void Purchase()
+        public override void Purchase()
         {
             PersonalDataEditor.Purchase(this);
         }
 
-        public void ShowData()
+        public override void ShowData()
         {
             PersonalDataEditor.ShowData(this);
         }

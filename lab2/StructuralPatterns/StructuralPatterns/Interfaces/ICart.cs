@@ -12,7 +12,7 @@ namespace StructuralPatterns.Interfaces
         void Add(IProduct p);
         void Remove(IProduct p);
         double GetTotalPrice();
-        void Update();
+        void Purchase();
         void WriteProductsName();
     }
 }

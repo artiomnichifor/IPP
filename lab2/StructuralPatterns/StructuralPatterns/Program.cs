@@ -41,7 +41,7 @@ namespace StructuralPatterns
 
             //Decorator
             LimitedEditionProduct limitedEditionProduct1 = new LimitedEditionProduct(product2);
-            limitedEditionProduct1.endOfProotion = new DateTime(2020, 1, 1);
+            limitedEditionProduct1.EndOfPromotion = new DateTime(2020, 1, 1);
             productSystem.AddProduct(limitedEditionProduct1);
 
             Product product3 = new Product();
