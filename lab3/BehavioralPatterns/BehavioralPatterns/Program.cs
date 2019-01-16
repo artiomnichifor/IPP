@@ -81,7 +81,7 @@ namespace BehavioralPatterns
 
             //Strategy
             requestor.Route.SetCalculationStrategy(new CalculatePrimeMethod());
-            Console.WriteLine($"Total route price is {requestor.Route.CalculateAvgSalary()}");
+            Console.WriteLine($"Total route price is {requestor.Route.CalculatePrice()}");
             Console.ReadKey();
 
             //Observer

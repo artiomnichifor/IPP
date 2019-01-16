@@ -25,7 +25,7 @@ namespace BehavioralPatterns.Entitites
             this.calculationStrategy = calculationStrategy;
         }
 
-        public double CalculateAvgSalary()
+        public double CalculatePrice()
         {
             return calculationStrategy.CalculatePrice(flights);
         }

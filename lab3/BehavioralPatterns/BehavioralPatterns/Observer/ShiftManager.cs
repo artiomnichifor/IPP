@@ -13,15 +13,15 @@ namespace BehavioralPatterns.Observer
 
         private Shift shift;
 
+        public ShiftManager()
+        {
+            employees = new List<IObserver>();
+        }
+
         public void SetNewShift(Shift shift)
         {
             this.shift = shift;
             Notify();
-        }
-
-        public ShiftManager()
-        {
-            employees = new List<IObserver>();
         }
 
         public void Attach(IObserver employee)
