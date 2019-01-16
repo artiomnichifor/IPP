@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\RouteCreator.cs" />
     <Compile Include="Entitites\Employee.cs" />
     <Compile Include="Entitites\Flight.cs" />
     <Compile Include="Entitites\Group.cs" />
@@ -63,7 +65,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Command\" />
     <Folder Include="CoR\" />
     <Folder Include="Observer\" />
     <Folder Include="Strategy\" />

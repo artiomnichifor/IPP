@@ -15,10 +15,12 @@ namespace BehavioralPatterns.Entitites
         public int Priority { get; set; }
         public string TypeOfFlight { get; set; }
         public Group Group { get; set; }
+        public Route Route { get; }
 
         public Requestor()
         {
             this._state = new PendingState();
+            this.Route = new Entitites.Route();
         }
 
         public void Call()

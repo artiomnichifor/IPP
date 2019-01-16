@@ -47,7 +47,34 @@ namespace BehavioralPatterns
             requestor.Call();
             Console.ReadKey();
 
+            //Command
+            Employee empl1 = groupC.employees.Find(x => x.Position == "FlightBuilder");
 
+            Flight flight1 = new Flight();
+            flight1.Start = "S1";
+            flight1.Destination = "D1";
+            flight1.Price = 10;
+            Flight flight2 = new Flight();
+            flight2.Start = "S2";
+            flight2.Destination = "D2";
+            flight2.Price = 20;
+            Flight flight3 = new Flight();
+            flight3.Start = "S3";
+            flight3.Destination = "D3";
+            flight3.Price = 30;
+            Flight flight4 = new Flight();
+            flight4.Start = "S4";
+            flight4.Destination = "D4";
+            flight4.Price = 40;
+
+
+            empl1.AddFlight(requestor, flight1);
+            empl1.AddFlight(requestor, flight2);
+            empl1.AddFlight(requestor, flight3);
+            empl1.RemoveFlight(requestor);
+            empl1.AddFlight(requestor, flight4);
+
+            requestor.Route.ShowFlights();
 
 
             Console.ReadKey();
