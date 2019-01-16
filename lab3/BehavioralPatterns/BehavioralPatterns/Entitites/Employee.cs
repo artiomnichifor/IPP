@@ -1,4 +1,5 @@
 ﻿using BehavioralPatterns.Command;
+using BehavioralPatterns.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace BehavioralPatterns.Entitites
 {
-    class Employee
+    class Employee : IObserver
     {
+        private Shift shift;
+
         private List<ICommand> commands = new List<ICommand>();
         private Route route = new Route();
         private int current = 0;
@@ -25,13 +28,16 @@ namespace BehavioralPatterns.Entitites
             current++;
         }
 
-        public void RemoveFlight(Requestor req)
-        {
-            
+        public void Undo(Requestor req)
+        {       
             ICommand command = commands[--current] as ICommand;
             command.RemoveFlight(req);
         }
 
-        
+        public void Update(Shift shift)
+        {
+            this.shift = shift;
+            Console.WriteLine(string.Format("Employee {0} - New shift: {1}", Name, shift.ShowShiftData()));
+        }
     }
 }

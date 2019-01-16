@@ -53,8 +53,14 @@
     <Compile Include="Entitites\ModeratePriorityGroup.cs" />
     <Compile Include="Entitites\Requestor.cs" />
     <Compile Include="Entitites\Route.cs" />
+    <Compile Include="Entitites\Shift.cs" />
+    <Compile Include="Observer\IObserver.cs" />
+    <Compile Include="Observer\ShiftManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategy\CalculateBaseMethod.cs" />
+    <Compile Include="Strategy\CalculatePrimeMethod.cs" />
+    <Compile Include="Strategy\ICalculateRoutePrice.cs" />
     <Compile Include="St\ServedState.cs" />
     <Compile Include="St\PendingState.cs" />
     <Compile Include="St\InquiringState.cs" />
@@ -66,8 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CoR\" />
-    <Folder Include="Observer\" />
-    <Folder Include="Strategy\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

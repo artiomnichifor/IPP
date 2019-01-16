@@ -1,4 +1,6 @@
 ﻿using BehavioralPatterns.Entitites;
+using BehavioralPatterns.Observer;
+using BehavioralPatterns.Strategy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,12 +73,27 @@ namespace BehavioralPatterns
             empl1.AddFlight(requestor, flight1);
             empl1.AddFlight(requestor, flight2);
             empl1.AddFlight(requestor, flight3);
-            empl1.RemoveFlight(requestor);
+            empl1.Undo(requestor);
             empl1.AddFlight(requestor, flight4);
 
-            requestor.Route.ShowFlights();
+            //requestor.Route.ShowFlights();
+            Console.ReadKey();
 
+            //Strategy
+            requestor.Route.SetCalculationStrategy(new CalculatePrimeMethod());
+            Console.WriteLine($"Total route price is {requestor.Route.CalculateAvgSalary()}");
+            Console.ReadKey();
 
+            //Observer
+            ShiftManager shiftManager = new ShiftManager();
+            foreach(Employee empl in groupA.employees)
+            {
+                shiftManager.Attach(empl);
+            }
+
+            Shift nightShift = new Shift("night", "17:00", "23:00");
+            shiftManager.SetNewShift(nightShift);
+            
             Console.ReadKey();
         }
     }

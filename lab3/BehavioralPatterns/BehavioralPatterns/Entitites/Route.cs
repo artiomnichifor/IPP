@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BehavioralPatterns.Strategy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,24 @@ namespace BehavioralPatterns.Entitites
     {
         public string Name { get; set; }
 
-        List<Flight> flights = new List<Flight>();
+        private readonly List<Flight> flights;
+
+        private ICalculateRoutePrice calculationStrategy;
+
+        public Route()
+        {
+            flights = new List<Flight>();
+        }
+
+        public void SetCalculationStrategy(ICalculateRoutePrice calculationStrategy)
+        {
+            this.calculationStrategy = calculationStrategy;
+        }
+
+        public double CalculateAvgSalary()
+        {
+            return calculationStrategy.CalculatePrice(flights);
+        }
 
         public void AddFlight(Flight fl)
         {
@@ -33,5 +51,6 @@ namespace BehavioralPatterns.Entitites
                 Console.WriteLine(fl.Price);
             }
         }
+
     }
 }
